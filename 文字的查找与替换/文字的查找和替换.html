@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>文字的查找和替换</title>
+<style>
+body,ul,li{margin:0;padding:0;}
+li{list-style:none;}
+	#wrap{width:650px;height:500px;position: relative;background: #efefe7;margin:0 auto;}
+	#box{width:480px;height: 230px;background:#fff;position: absolute;top: 65px;left:29px;line-height:30px;padding:15px;}
+	
+	.one{width:80px;height:40px;text-align: center;line-height: 40px;background: #c0c0c0;margin:1px 0;text-decoration: none;}
+	.button{position:absolute;right:15px;top:55px;background:#808080;color:#fff;}
+	#btn{position:absolute;top:96px;right:15px;display: none;}
+	#btn li{cursor: pointer;}	
+	#bottom{position: absolute;width:480px;height:100px;border:10px solid #e71063;top:340px;left:20px;background: #e7e7b5;padding:10px;display: none;}
+	#bottom p{display: none;}
+	.header{height:30px;border-bottom: 1px solid #e73100;}
+	.header span{display:inline-block;height:100%;line-height:30px;cursor: pointer;padding:0 5px;}
+	.header .red{background: red;}
+	.yellow{background: yellow;}
+	.blue{background:blue;}
+	strong{position: absolute;width:20px;height:20px;font-size: 16px;line-height: 20px;top:0;right:0;text-align: center;cursor:pointer;}
+</style>
+<script src="comm.js"></script>
+<script type="text/javascript">
+	window.onload = function () {
+		var disPlay = $("a")[0];
+		var btn = $("#btn");
+		var oLi = $("li");
+		var bottom_div = $("#bottom");
+		var seach_tihuan = $("p");//div中的两个按钮进行切换--查找和替换
+		var seach_tihuan_input0 = $("input",seach_tihuan[0]);
+		var seach_tihuan_input1 = $("input",seach_tihuan[1]);
+		var aSpan = $("span");
+		var close = $("strong")[0];
+		var box = $("#box");
+		var arr=[];
+		function seach(){//查找
+			seach_tihuan[0].style.display = "block";
+			seach_tihuan[1].style.display = "none";
+			aSpan[0].className = "red";
+			aSpan[1].className = "";
+		}
+		function tihuan() {//替换
+			seach_tihuan[0].style.display = "none";
+			seach_tihuan[1].style.display = "block";
+			aSpan[0].className = "";
+			aSpan[1].className = "red";
+		}
+		disPlay.onclick = function () {//展开按钮点击
+			if (btn.style.display=="block") {
+				btn.style.display="none";
+			} else {
+				btn.style.display="block";
+			}
+		}
+		oLi[0].onclick = function () {//查找按钮点击
+			bottom_div.style.display = "block";
+			btn.style.display="none";
+			seach();
+		}
+		oLi[1].onclick = function () {//替换按钮点击
+			bottom_div.style.display = "block";
+			btn.style.display="none";
+			tihuan();
+		}
+		close.onclick =function () {//关闭div
+			bottom_div.style.display = "none";
+		}
+		aSpan[0].onclick = function () {//div中的查找按钮
+			seach();
+		}
+		aSpan[1].onclick = function () {//div中的替换按钮
+			tihuan();
+		}
+			
+			
+			var box_text = box.innerHTML;
+			var arr=[];
+			var str2 = '';
+		seach_tihuan_input0[1].onclick=function () {//p底下的查找按钮
+			var str=seach_tihuan_input0[0].value;
+			arr = box_text.split(str);
+			if (arr.length==1) {
+				  alert("要查找的内容不存在");
+			}
+			if (str.value==="") {
+				alert("请输入要查找的内容");
+				return;
+			} else {
+				arr = box_text.split(str);
+				str2 = arr.join("<span class='yellow'>"+str+"</span>");
+				box.innerHTML=str2;
+				box_text=arr.join(str);
+			}
+		}
+		seach_tihuan_input1[2].onclick=function () {//p底下的替换按钮
+			var str_1=seach_tihuan_input1[0].value;
+			var str_2=seach_tihuan_input1[1].value;
+			if (str_1==="") {
+				console.log(111);
+				return;
+			}
+			if (box_text.split(str_1).length==1) {
+				alert("替换的内容不存在");
+
+			}else{
+				arr = box_text.split(str_1);
+				str2 = arr.join("<span class='yellow'>"+str_2+"</span>");
+				box.innerHTML=str2;
+				box_text=arr.join(str_2);
+			}
+				
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="wrap">
+		<div id="box">我们的故乡，是什么的呢？？
+		</div>
+		<div id="bottom">
+			<div class="header">
+				<span>查找</span>
+				<span>替换</span>
+			</div>
+			<p>
+				<input class="input" type="text"/>
+				<input type="button" value="查找">
+			</p>
+			<p>
+				<input class="input" type="text"/>
+				<input class="input" type="text"/>
+				<input type="button" value="替换">
+			</p>
+			<strong class='no'>X</strong>
+		</div>
+		<a class="button one" href="javascript:;">展开</a>
+		<ul id="btn">
+			<li class="one">查找</li>
+			<li class="one">替换</li>
+		</ul>
+	</div>
+</body>
+</html>

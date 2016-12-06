@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>图片切换-动画</title>
+<style>
+	body{
+		margin: 0;
+		padding: 0;
+		background-color: #5e5e5e;
+	}
+	#box{
+		width: 1000px;
+		height: 700px;
+		margin: 0 auto;
+		background: url(img/bg.png) no-repeat;
+		position: relative;
+	}
+	#wrap{
+		width: 700px;
+		height: 420px;
+		border: 1px solid red;
+		position: absolute;
+		left:143px;
+		top: 126px;
+		transform-style: preserve-3d;
+		perspective: 800px;
+	}
+	#wrap div{
+		width: 10px;
+		height: 420px;
+		float: left;
+		background: url(img/01.png) no-repeat;
+		transition: 0.5s;
+	}
+</style>
+<script>
+	window.onload=function () {
+		var oWrap = document.getElementById('wrap');
+		var str = "";
+		for (var i = 0; i < 70; i++) {
+			str+='<div style="background-position-x:'+(-i*10)+'px"></div>'
+		}
+		oWrap.innerHTML=str;
+		var aDiv = oWrap.getElementsByTagName('div');
+		var num=0;
+		var imgSrc=2;
+		var timer=null;
+		run();
+		function run() {
+			timer=setInterval(function () {
+				tab(num);
+				num++;
+				if (num==71) {
+					clearInterval(timer);
+					setTimeout(run,500);
+					num=0;
+					imgSrc++;
+					if (imgSrc==6) {
+						imgSrc=1;
+					}
+				}
+			},80)
+		}
+		function tab(n) {
+			if (aDiv[n-1]) {
+				aDiv[n-1].style.opacity=1;
+			}
+			if (aDiv[n]) {
+				aDiv[n].style.opacity=0;
+				aDiv[n].style.backgroundImage='url(img/0'+imgSrc+'.png)';
+
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="box">
+		<div id="wrap">
+
+		</div>
+	</div>
+</body>
+</html>

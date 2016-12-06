@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			ul{
+				position: relative;
+			}
+			li{
+				padding: 10px;
+				background: #fff;
+				position:absolute;
+				left: 0px;
+				top: 0px;
+			}
+		</style>
+<script src="comm.js"></script>
+<script>
+window.onload=function () {
+	var oUl=document.getElementById('oUl');
+	var allLi=oUl.getElementsByTagName('li');
+	for (var i = 0; i < allLi.length; i++) {
+		allLi[i].style.top=i*41+"px";
+	}
+	for (var i = 0; i < allLi.length; i++) {
+		allLi[i].index=i;
+		var btns = allLi[i].getElementsByTagName('input');
+		btns[0].onclick=function () {//上移
+			if (this.parentNode.previousElementSibling===null) {
+				alert("到头了！！！");
+				return;
+			}
+			var this_T=parseInt(this.parentNode.style.top)-41;
+			var prev_T=parseInt(this.parentNode.previousElementSibling.style.top)+41;
+			var _thisParentNode = this.parentNode;
+			var _thisParentNodePrev=this.parentNode.previousElementSibling;
+			doMove(this.parentNode,"top",this_T,2,function (){
+			   	oUl.insertBefore(_thisParentNode,_thisParentNodePrev);
+			});
+			doMove(this.parentNode.previousElementSibling,"top",prev_T,2,function (){
+			});
+		}
+		btns[1].onclick=function () {//下移
+			if (this.parentNode.nextElementSibling===null) {
+				alert("到底了！！！");
+				return;
+			}
+			var this_T=parseInt(this.parentNode.style.top)+41;
+			var next_T=parseInt(this.parentNode.nextElementSibling.style.top)-41;
+			var _thisParentNode = this.parentNode;
+			var _thisParentNodeNext=this.parentNode.nextElementSibling.nextElementSibling;
+			doMove(this.parentNode,"top",this_T,2,function (){
+			   	oUl.insertBefore(_thisParentNode,_thisParentNodeNext);
+			});
+			doMove(this.parentNode.nextElementSibling,"top",next_T,2,function (){
+			});
+		}
+	}
+}
+</script>
+	</head>
+
+	<body>
+		<ul id="oUl">
+			<li>
+				<span>1111111111</span>
+				<input type="button" value="上移">
+				<input type="button" value="下移">
+			</li>
+			<li>
+				<span>2222222222</span>
+				<input type="button" value="上移">
+				<input type="button" value="下移">
+			</li>
+			<li>
+				<span>3333333333</span>
+				<input type="button" value="上移">
+				<input type="button" value="下移">
+			</li>
+			<li>
+				<span>4444444444</span>
+				<input type="button" value="上移">
+				<input type="button" value="下移">
+			</li>
+			<li>
+				<span>5555555555</span>
+				<input type="button" value="上移">
+				<input type="button" value="下移">
+			</li>
+		</ul>
+	</body>
+</html>

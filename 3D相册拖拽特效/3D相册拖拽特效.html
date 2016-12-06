@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"   onselectstart="return false">
+<head>
+	<meta charset="UTF-8">
+	<title>3D相册拖拽特效</title>
+	<style>
+		body{
+			margin: 0;
+			padding:0; 
+		}
+		body{
+			background: #000;
+		}
+		#box{
+			width: 100px;
+			height: 150px;
+			border: 1px solid red;
+			margin: 200px auto 0;
+			position: relative;
+			transform-style: preserve-3d;
+			transform: perspective(800px) rotateX(-15deg) rotateY(0deg);
+		}
+		#box img{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			border-radius: 5px;
+			box-shadow: 0 0 15px rgba(255,255,255,0.8);
+			-webkit-box-reflect:below 8px -webkit-linear-gradient(top,rgba(0,0,0,0) 40%,rgba(0,0,0,0.5) 100%);
+		}
+		#box p{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 1000px;
+			height: 1000px;
+			background: #fff;
+			transform: translate(-50%,-43.7%) rotateX(90deg);
+			background: -webkit-radial-gradient(rgba(255,255,255,0.15) 0%,rgba(255,255,255,0) 60%);
+		}
+
+	</style>
+</head>
+<body>
+	<div id="box">
+		<img src="img/1.jpg" alt="">
+		<img src="img/2.jpg" alt="">
+		<img src="img/3.jpg" alt="">
+		<img src="img/4.jpg" alt="">
+		<img src="img/5.jpg" alt="">
+		<img src="img/6.jpg" alt="">
+		<img src="img/7.jpg" alt="">
+		<img src="img/8.jpg" alt="">
+		<img src="img/9.jpg" alt="">
+		<img src="img/10.jpg" alt="">
+		<img src="img/11.jpg" alt="">
+		<p></p>
+	</div>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script>
+		$(function () {
+			var aImg = $('#box img');
+			var oBox = $('#box');
+			var deg = 360/aImg.length;
+			var rotY = 0;
+			var rotX = -15;
+			var xN,yN;
+			var timer=null;
+			aImg.each(function (i) {
+				$(this).css('transform','rotateY('+deg*i+'deg) translateZ(350px)');
+				$(this).attr('ondragstart','return false');//清除拖拽图片时候的默认行为
+			})
+			$(document).mousedown(function (ev) {
+					clearInterval(timer);//鼠标按下清除定时器，防止定时器累加，始终保持有一个定时器
+					var _x = ev.clientX;//初始的位置的x
+					var _y = ev.clientY;
+
+				$(document).mousemove(function (ev) {
+					var x = ev.clientX;//当前的x的位置
+					var y = ev.clientY;
+					xN=x-_x;//上一次x的位置和当前x的位置的差值，作为旋转角度
+					yN=y-_y;
+					rotY += xN*0.1;
+					rotX -= yN*0.1;
+					oBox.css('transform','perspective(800px) rotateX('+rotX+'deg) rotateY('+rotY+'deg)');//移动过程的当通过移动的距离来改变变换的角度
+					_x = ev.clientX;//上一次的x的位置
+					_y = ev.clientY;
+				})
+				$(document).mouseup(function () {
+					$(document).off('mousemove mouseup');
+					//抬起鼠标后惯性的实现
+					timer=setInterval(function () {
+						xN=xN*0.95;
+						yN=yN*0.95;
+						if (Math.abs(xN)<0.5 && Math.abs(yN)<0.5) {
+							clearInterval(timer);
+						}
+						rotY += xN*0.1;
+						rotX -= yN*0.1;
+						oBox.css('transform','perspective(800px) rotateX('+rotX+'deg) rotateY('+rotY+'deg)');
+					},30)
+					
+				})
+			})
+		})
+	</script>
+</body>
+</html>

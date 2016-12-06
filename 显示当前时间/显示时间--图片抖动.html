@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	img{
+		position: relative;
+		left:0;
+		top:0; 
+	}
+	</style>
+	<script type="text/javascript">
+		function addZero(n) {
+			return n<10? '0'+n : n;
+		}
+		function getTimes() {
+			var time = new Date();
+			var str="";
+			var h = time.getHours();
+			var min = time.getMinutes();
+			var s= time.getSeconds();
+			str += addZero(h)+":"+addZero(min)+":"+addZero(s);
+			return str;
+		}
+		function getStyle( obj,attr ){
+				return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];		
+			};
+		function shake(obj,attr,speed){
+			if( obj.timer ) return;
+			var cur = parseInt(getStyle(obj,attr)); 
+			var arr = [];
+			for( var i = speed; i > 0 ; i-=3 ){
+				arr.push(-i,i);
+			}
+			arr.push(0);
+			var n = 0;
+			obj.timer = setInterval(function (){
+				obj.style[attr] = arr[n]+cur + "px";
+				n++;
+				if( n >= arr.length ){
+					clearInterval(obj.timer);
+					obj.timer = null;
+				}
+			},30)	
+		}
+		window.onload=function () {
+			var allImg = document.getElementsByTagName('img');
+			/*setTimes();//放在这里是错误的，这样会把newTimes解析为undifined。会优先于var newTimes="";执行*/
+			var newTimes="";//该变量应该放在全局，因为页面加载进来进行一次初始化。
+			setTimes();//页面上来的时候就执行下，防止有停顿1秒
+			 setInterval(function () {
+		   	 	setTimes();
+		    },1000)
+			function setTimes() {
+				var times = getTimes();
+				/*
+					var newTimes="";//这个变量不应该放在这里，因为放在这里的话，每次都是空的，每个图片都不一样，都会抖动
+				*/
+				for (var i = 0; i < allImg.length; i++) {
+					if (times[i]===":") {
+						allImg[i].src="img/fuh.png"
+					} else {
+						allImg[i].src="img/"+times[i]+".png";
+						console.log(times,newTimes);
+						if (times[i]!==newTimes[i]){
+							shake(allImg[i],"top",30);
+							
+						}
+					}
+				}
+				newTimes=times;
+
+			}
+		   
+			
+		}
+	</script>
+</head>
+<body>
+	<img src="img/0.png">
+	<img src="img/0.png">
+	<img src="img/fuh.png">
+	<img src="img/0.png">
+	<img src="img/0.png">
+	<img src="img/fuh.png">
+	<img src="img/0.png">
+	<img src="img/0.png">
+</body>
+</html>

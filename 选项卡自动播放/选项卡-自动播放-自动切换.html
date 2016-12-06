@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		ul,li{margin:0;padding:0; list-style:none;}
+		input{
+			background: #E6E456;
+		}
+		img{
+			width: 200px;
+			height: 100px;
+			display: none;
+		}
+		#div0{
+			width: 300px;
+			border:1px solid #000;
+		}
+		.btn{
+			width: 87px;
+			height: 33.3px;
+			position: absolute;
+			top: 30px;
+			left:220px;
+			
+		}
+		.btn p{
+			padding:0;
+			margin:0;
+			width: 87px;
+			height: 33.3px;
+			background: #F8F2F2;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function () {
+			var allInput = document.getElementsByTagName('input');
+			var list = document.getElementById("list");
+			var allLi = list.getElementsByTagName("li");
+			var Li0_allImg = allLi[0].getElementsByTagName("img");
+			var Li0_allP = allLi[0].getElementsByTagName("p");
+			var timer1 = null;
+			var n = 0;
+
+			var Li1_allImg = allLi[1].getElementsByTagName("img");
+			var Li1_allP = allLi[1].getElementsByTagName("p");
+			var timer2 = null;
+			var m = 0;
+
+			menu1();
+			function menu1() {
+				timer1=setInterval(function () {
+					for (var i = 0; i < Li0_allP.length; i++) {
+						Li0_allP[i].style.background="#F8F2F2";
+						Li0_allImg[i].style.display="none";
+					}
+					n++;
+					if (n===Li0_allP.length) {
+						clearInterval(timer1);
+						n=0;
+						allLi[0].style.display='none';
+						allLi[1].style.display='block';
+						allInput[0].style.background="#E6E456";
+						allInput[1].style.background="red";
+						menu2();
+					}
+					Li0_allP[n].style.background="blue";
+					Li0_allImg[n].style.display="block";
+				},1000)
+			}
+
+			function menu2() {
+				timer2=setInterval(function () {
+					for (var i = 0; i < Li0_allP.length; i++) {
+						Li1_allP[i].style.background="#F8F2F2";
+						Li1_allImg[i].style.display="none";
+					}
+					m++;
+					if (m===Li1_allP.length) {
+						clearInterval(timer2);
+						m=0;
+						allLi[1].style.display='none';
+						allLi[0].style.display='block';
+						allInput[1].style.background="#E6E456";
+						allInput[0].style.background="red";
+						menu1();
+					}
+					Li1_allP[m].style.background="blue";
+					Li1_allImg[m].style.display="block";
+				},1000)
+			}
+
+
+
+		}
+	</script>
+</head>
+<body>
+<div id="div0">
+	<div id="div1">
+		<input type="button" value="菜单1" style="background: red;" />
+		<input type="button" value="菜单2" />
+	</div>
+		<ul id="list">
+			<li  style="display: block;">
+				<strong>
+					<img src="img/1.jpg" style="display: block;">
+					<img src="img/2.jpg">
+					<img src="img/3.jpg">
+				</strong>
+				<strong class="btn">
+					<p style="background: blue;">图片1</p>
+					<p>图片2</p>
+					<p>图片3</p>
+				</strong>
+			</li>
+			<li style="display: none;">
+				<strong >
+					<img src="img/4.jpg"  style="display: block;">
+					<img src="img/5.jpg">
+					<img src="img/6.jpg">
+				</strong>
+				<strong class="btn">
+					<p style="background: blue;">图片4</p>
+					<p>图片5</p>
+					<p>图片6</p>
+				</strong>
+
+			</li>
+		</ul>
+</div>
+	
+</body>
+</html>

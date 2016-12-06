@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+<style>
+	*{
+		margin:0;
+		padding: 0;
+	}
+	#box{
+		width: 300px;
+		height: 300px;
+		border: 1px solid #000;
+		position: absolute;
+	}
+	#oDiv{
+		width: 100px;
+		height: 100px;
+		background: red;
+		position: absolute;
+		left: 0px;
+		top:0px;
+		cursor: move;
+		opacity: .5;
+	}
+	#img1{
+		width: 300px;
+		height: 300px;
+		position: absolute;
+		top: 0;
+		left:0;
+	}
+	#box2{
+		width: 300px;
+		height: 300px;
+		border: 1px solid #000;
+		position: absolute;
+		left: 310px;
+		top:0;
+		overflow: hidden;
+	}
+	#img2{
+		width: 900px;
+		height: 900px; 
+		position: absolute;
+		top: 0;
+		left:0;
+		/* display: none; */
+	} 
+</style>
+<script>
+function scrollTop(){
+	return document.documentElement.scrollTop || document.body.scrollTop	
+}
+window.onload = function(){
+	var oDiv = document.getElementById("oDiv");
+	var oDiv2 = document.getElementById("oDiv2");
+	var box = document.getElementById("box");
+	var box2 = document.getElementById("box2");
+	
+	var img2=document.getElementById("img2");
+	box.onmousemove = function (ev){
+		var e = ev || event;
+		var l = e.clientX - oDiv.offsetWidth/2;//鼠标进入方块中间
+		var t = e.clientY - oDiv.offsetHeight/2;//鼠标进入方块中间
+		var small_x=oDiv.offsetLeft;
+		var small_X=box.clientWidth;
+		var small_y=oDiv.offsetTop;
+		var small_Y=box.clientHeight;
+		var big_X=img2.offsetWidth;
+		var big_Y=img2.offsetHeight;
+		var value_W=small_x/small_X*big_X;
+		var value_H=small_y/small_Y*big_Y;
+		console.log(small_x,small_X);
+		if( l <= 0 ){//左边的范围不能超出
+			l = 0;
+		}
+		if( l >= box.clientWidth - oDiv.offsetWidth ){//右边的范围不能超出
+			l = box.clientWidth - oDiv.offsetWidth;
+		}
+		if( t <= 0 ){//上边的范围不能超出
+			t = 0;
+		}
+		if( t >= box.clientWidth - oDiv.offsetWidth ){//下边的范围不能超出
+			t = box.clientWidth - oDiv.offsetWidth;
+		}
+		oDiv.style.left = l + "px";
+		oDiv.style.top = t + "px";
+		img2.style.left =-value_W + "px";
+		img2.style.top = -value_H + "px";
+	};
+		
+
+};
+</script>
+	</head>
+
+	<body>
+		<div id="box">
+			<img src="1.jpg" id="img1">
+			<div id="oDiv"></div>
+		</div>
+		<div id="box2">
+			<img src="2.jpg" id="img2">
+			
+		</div>
+		
+	</body>
+</html>

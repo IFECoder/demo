@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QQ列表</title>
+	<style type="text/css">
+	ul {
+		display: none;
+	}
+
+
+	</style>
+	<script type="text/javascript">
+/*QQ列表实现的步骤--过程（要将描述的文字变成事件的执行过程）
+1.点击h2展开好友列表
+    展开好友列表，h2背景为红色；再次点击折叠起来
+
+2.点击“我的好友”里面的li后
+
+	  li的背景色为蓝色，移开后蓝色
+
+
+
+  鼠标移入
+	  li后背景色为浅蓝色，
+
+  鼠标移出
+	  有点击：背景为蓝色
+	  无点击：背景色消失。
+*/		window.onload = function () {
+		var oDiv = document.getElementById('oDiv');
+		var oH2 = oDiv.getElementsByTagName('h2');
+		var oUl = oDiv.getElementsByTagName('ul');
+		var oLi = oDiv.getElementsByTagName("li");
+		
+		
+		for (var i = 0; i < oH2.length; i++) {//为每个h2添加一个点击事件
+			oH2[i].index=i;
+			oH2[i].onOff=true;//点击了
+			oH2[i].onclick = function () {
+				if (this.onOff) {//开关点击了
+					oUl[this.index].style.display="block";//显示Ul列表
+					this.style.background="red";
+					this.onOff=false;//关闭开关，为再次点击做准备，下次点击时候直接跳到下面的else里面执行
+				} else {
+					oUl[this.index].style.display="none";
+					this.style.background="";
+					this.onOff=true;
+				}
+				
+			}
+		}
+		for (var i = 0; i < oLi.length; i++) {//为每个li添加一个点击事件，鼠标移入，移出事件
+			oLi[i].onOff = true;//没点击
+			oLi[i].onmouseover = function () {//鼠标移入
+
+				if (this.onOff) {//判定当前的li是否点击，没点击则是红色
+					this.style.background="red";
+				}	
+			    
+
+				
+			}
+			oLi[i].onmouseout= function () {//鼠标移出
+				if (this.onOff) {//判定当前的li是否点击，没点击则背景清空
+				  this.style.background="";
+			    }
+			}
+			oLi[i].onclick= function () {//点击
+				for (var j = 0; j < oLi.length; j++) {//为了防止第二次点击时还显示蓝色，必须进行大清除，将状态调到初始值
+					oLi[j].style.background="";
+					oLi[j].onOff=true;
+
+				}
+				
+
+				this.style.background="blue";//点击后，将当前的背景为蓝色
+				this.onOff=false;
+
+			
+
+				
+			}
+		}
+		
+
+
+
+
+		}
+
+	</script>
+
+</head>
+
+<body>
+<div id="oDiv">
+	<div>
+	    <h2>我的好友</h2>
+		<ul>
+		  <li>小米</li>
+		  <li>小米</li>
+		  <li>小米</li>
+		</ul>
+
+	</div>
+	<div>
+		<h2>黑名单</h2>
+		<ul>
+		  <li>小米</li>
+		  <li>小米</li>
+		  <li>小米</li>
+		</ul>
+
+	</div>
+	<div>
+		<h2>亲人</h2>
+		<ul>
+		  <li>小米</li>
+		  <li>小米</li>
+		  <li>小米</li>
+		</ul>
+		
+
+	</div>
+
+
+
+</div >
+	
+</body>
+</html>
