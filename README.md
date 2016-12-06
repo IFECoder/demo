@@ -1,7 +1,7 @@
 # demo
 自己写的一些demo合集
 <ol>
-    <li><a target="_blank" href="https://github.com/IFECoder/demo/3D相册拖拽特效/3D相册拖拽特效.html">3D相册拖拽特效</a>---用到了css3的3D变换、圆角及盒模型阴影等</li>
+    <li><a target="_blank" href="https://ifecoder.github.io/demo/3D%E7%9B%B8%E5%86%8C%E6%8B%96%E6%8B%BD%E7%89%B9%E6%95%88/3D%E7%9B%B8%E5%86%8C%E6%8B%96%E6%8B%BD%E7%89%B9%E6%95%88.html">3D相册拖拽特效</a>---用到了css3的3D变换、圆角及盒模型阴影等</li>
     <li><a target="_blank" href="">3D轮播切换特效</a>---用到了透明度、定位及z-index等</li>
     <li><a target="_blank" href="">QQ号码判断</a>---利用原生写的一个QQ号码的判断</li>
     <li><a target="_blank" href="">上移与下移</a>---利用原生写的一个针对节点操作的上移下移</li>
