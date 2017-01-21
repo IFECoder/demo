@@ -1,0 +1,238 @@
+.page {
+  background: url(../img/bg.png) no-repeat;
+  background-size: 100% 100% ;
+  position: relative;
+}
+/*第一个页面*/
+#pages1 {
+  background: url(../img/covers_bg.png) no-repeat;
+}
+#pages1 .covers_lantern {
+  position: absolute;
+  width: 9.88888889rem;
+  height: 7.86666667rem;
+  top: -0.86666667rem;
+  left: -1.17777778rem;
+}
+#pages1 #subtitle {
+  width: 0.88888889rem;
+  font-size: 0.88888889rem;
+  word-wrap: break-word;
+  letter-spacing: 0.44444444rem;
+  position: absolute;
+  top: 5.86666667rem;
+  right: 2.82222222rem;
+  font-family: "宋体";
+  font-weight: normal;
+}
+#pages1 #maintit1 {
+  width: 3.24444444rem;
+  height: 11.71111111rem;
+  background: url(../img/word2.png) no-repeat;
+  position: absolute;
+  top: 3.64444444rem;
+  right: 4.06666667rem;
+  background-size: cover;
+}
+#pages1 #maintit2 {
+  width: 4.44444444rem;
+  height: 11.82222222rem;
+  background: url(../img/word1.png) no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 9.02222222rem;
+  left: 4.93333333rem;
+}
+#pages1 #logo {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  margin-left: -2.13333333rem;
+  bottom: 3.08888889rem;
+}
+#pages1 #logo img {
+  width: 4.26666667rem;
+  height: 3.28888889rem;
+}
+#pages1 #covers_footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 16rem;
+  height: 3.4rem;
+}
+/*第2页面*/
+#pages2 #word1 {
+  opacity: 0;
+  font-size: 0.84444444rem;
+  width: 11.95555556rem;
+  position: absolute;
+  top: 6rem;
+  right: 1.86666667rem;
+  line-height: 1.55555556rem;
+}
+#pages2 #word2 {
+  opacity: 0;
+  font-size: 1.02222222rem;
+  width: 10.97777778rem;
+  position: absolute;
+  top: 11.77777778rem;
+  left: 2.57777778rem;
+  line-height: 1.48888889rem;
+}
+#pages2 #pages2_lantern {
+  opacity: 0;
+  width: 3.24444444rem;
+  height: 5.15555556rem;
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  margin-left: -1.62222222rem;
+}
+.btn {
+  width: 7.11111111rem;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  background: #CB2001;
+  border-radius: 0.33333333rem;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  text-align: center;
+  font-size: 1.06666667rem;
+}
+/*第3页面*/
+.title {
+  width: 2.24444444rem;
+  height: 16.15555556rem;
+  position: absolute;
+  top: 2.55555556rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+}
+.prompt {
+  width: 1.2rem;
+  height: 9.75555556rem;
+  position: absolute;
+  top: 8.75555556rem;
+  left: 4.62222222rem;
+}
+.input_sure {
+  width: 8.48888889rem;
+  height: 2.13333333rem;
+  box-sizing: border-box;
+  border-bottom: 0.04444444rem #000000 solid;
+  position: absolute;
+  bottom: 6.13333333rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+}
+.inputVal {
+  width: 8.48888889rem;
+  height: 2.13333333rem;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  font-size: 0.88888889rem;
+  font-family: "宋体";
+  color: #BD280F;
+  position: absolute;
+}
+.sure {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.33333333rem;
+  margin: 0 auto;
+  text-align: right;
+  border-left: 0.02222222rem #000000 solid;
+  line-height: 1.02222222rem;
+}
+.show_lantern {
+  width: 2.22222222rem;
+  height: 3.55555556rem;
+  position: absolute;
+  bottom: -1rem;
+  right: -2rem;
+  display: none;
+}
+.input_sure .inputChange {
+  font-size: 1.33333333rem;
+  color: #000;
+  font-family: "黑体";
+  text-align: center;
+  letter-spacing: 0.44444444rem;
+}
+.tangyuan {
+  width: 1.15555556rem;
+  height: 1.15555556rem;
+  position: absolute;
+  left: 3.86666667rem;
+  bottom: 4.13333333rem;
+}
+.tangyuan .tangyuan1 {
+  width: 1.15555556rem;
+  height: 0.84444444rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.tangyuan .tangyuan2 {
+  opacity: 0;
+  width: 0.57777778rem;
+  height: 0.64444444rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+/*第12个页面*/
+#pages12 {
+  background: url(../img/share_bg.png) no-repeat;
+  background-size: 100% 100% ;
+}
+#result {
+  width: 12.66666667rem;
+  height: 3.57777778rem;
+  position: absolute;
+  top: 2.33333333rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+}
+#pages12 #total {
+  width: 9.51111111rem;
+  height: 13.46666667rem;
+  margin: 5.82222222rem auto 0;
+}
+#pages12 #total .lantern_num img {
+  width: 3.02222222rem;
+  height: 4.53333333rem;
+  float: left;
+}
+#pages12 #share_btn {
+  width: 9.51111111rem;
+  height: 1.73333333rem;
+  border: 0.04444444rem solid #faba00;
+  text-align: center;
+  font-size: 1.06666667rem;
+  color: #FABA00;
+  margin: 0.97777778rem auto 0;
+  border-radius: 0.33333333rem;
+}
+#pages12 #img_code {
+  width: 3.51111111rem;
+  height: 3.35555556rem;
+  position: absolute;
+  bottom: 1.88888889rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+}
+#pages12 #word_code {
+  font-size: 0.62222222rem;
+  font-family: "宋体";
+  font-weight: bold;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+}
