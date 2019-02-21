@@ -16,5 +16,5 @@
     <li><a target="_blank" href="https://ifecoder.github.io/demo/%E9%80%89%E9%A1%B9%E5%8D%A1%E8%87%AA%E5%8A%A8%E6%92%AD%E6%94%BE/%E9%80%89%E9%A1%B9%E5%8D%A1-%E8%87%AA%E5%8A%A8%E6%92%AD%E6%94%BE-%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2.html">选项卡自动播放</a>---用到了定时器实现在两个选项卡之间进行切换</li>
     <li><a target="_blank" href="https://ifecoder.github.io/demo/QQ%E5%88%97%E8%A1%A8.html">QQ列表</a>---针对节点的操作，移入、移出、点击事件等</li>
     <li><a target="_blank" href="https://ifecoder.github.io/demo/%E4%B8%BADIV%E8%AE%BE%E7%BD%AE%E6%A0%B7%E5%BC%8F.html">为DIV设置样式</a>---自己写的一个小工具，给div设置颜色、宽高</li> 
- 	<li><a target="_blank" href="http://www.yupei.xyz/demo/iphone X齐刘海/iphone X齐刘海">iphone X齐刘海</a>---为了适配iphone X的页面展示</li> 
+ 	<li><a target="_blank" href="http://www.yupei.xyz/demo/iphone%20X%E9%BD%90%E5%88%98%E6%B5%B7/iphone%20X%E9%BD%90%E5%88%98%E6%B5%B7.html">iphone X齐刘海</a>---为了适配iphone X手机的页面展示</li> 
 </ol>
