@@ -13,11 +13,9 @@
     <li>
     	<a target="_blank" href="https://ifecoder.github.io/demo/上移与下移/行与行切换-有运动效果-不能循环切换.html">上移与下移</a>---利用原生写的一个针对节点操作的上移下移
     </li> 
-     
     <li>
     	<a target="_blank" href="https://ifecoder.github.io/demo/全屏鼠标滚轮特效/全屏鼠标滚轮特效.html">全屏鼠标滚轮特效</a>---自己封装了一个滚轮事件，针对滚动整屏的操作
-    </li> 
-     
+    </li>
     <li>
     	<a target="_blank" href="https://ifecoder.github.io/demo/图片切换-动画版/图片切换.html">图片切换-动画版</a>---用到了css3的3D变换做的一个轮播图
     </li>   
