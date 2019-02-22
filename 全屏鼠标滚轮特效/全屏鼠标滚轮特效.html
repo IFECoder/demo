@@ -115,9 +115,10 @@
 					nowTime=new Date();
 					index--;
 					if (index<0) {
+						index = 0;
 						return;
 					}
-					$('body').animate({
+					$('body,html').animate({
 						scrollTop:bodyH*index
 					},1000)
 					$(aLi[index]).addClass('active').siblings().removeClass('active');
@@ -127,9 +128,10 @@
 					nowTime=new Date();
 					index++;
 					if (index>3) {
+						index = 3;
 						return;
 					}
-					$('body').animate({
+					$('body,html').animate({
 						scrollTop:bodyH*index
 					},1000)
 					$(aLi[index]).addClass('active').siblings().removeClass('active');
